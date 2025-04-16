@@ -16,7 +16,7 @@ const BlogCard = () => {
     >
       <div className="relative overflow-hidden h-48">
         <img
-          src="https://images.pexels.com/photos/31582891/pexels-photo-31582891/free-photo-of-futuristic-geometric-architecture-indoors.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+          src="https://images.pexels.com/photos/31606510/pexels-photo-31606510/free-photo-of-elegant-modern-dining-room-with-outdoor-view.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
           alt="Architectural Interior"
           className={`w-full h-full object-cover transition-all duration-700 ${
             isHovered ? "scale-110" : "scale-100"
