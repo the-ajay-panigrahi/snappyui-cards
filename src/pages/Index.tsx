@@ -15,12 +15,6 @@ const Index = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-100 to-slate-200 dark:from-slate-900 dark:to-slate-950 p-4 md:p-8 transition-all duration-500">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
-          <div className="col-span-1 flex justify-center items-start animate-fade-in opacity-0 animation-delay-200 hover:z-10">
-            <div className="transform transition-all duration-500 hover:scale-[1.03] hover:-translate-y-1 w-full">
-              <ProjectCard />
-            </div>
-          </div>
-
           <div className="col-span-1 flex justify-center items-start animate-fade-in opacity-0 animation-delay-300 hover:z-10">
             <div className="transform transition-all duration-500 hover:scale-[1.03] hover:-translate-y-1 w-full">
               <NotificationCard />
