@@ -71,7 +71,18 @@ const Index = () => {
 
           <div className="col-span-1 flex justify-center items-start animate-fade-in opacity-0 animation-delay-900 hover:z-10">
             <div className="transform transition-all duration-500 hover:scale-[1.03] hover:-translate-y-1 w-full">
-              <ProductCard />
+              <ProductCard
+                imageSrc="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80"
+                imageAlt="Product"
+                saleText="Sale"
+                isFavoriteInitial={false}
+                productName="Premium Running Shoes"
+                productPrice="$129.99"
+                productOldPrice="$199.99"
+                productDiscount="35% OFF"
+                productDescription="Lightweight, responsive cushioning with breathable mesh upper for maximum comfort during your run."
+                productRating={4}
+              />
             </div>
           </div>
 
