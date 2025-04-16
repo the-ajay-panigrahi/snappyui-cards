@@ -22,7 +22,26 @@ const Index = () => {
 
           <div className="col-span-1 flex justify-center items-start animate-fade-in opacity-0 animation-delay-400 hover:z-10">
             <div className="transform transition-all duration-500 hover:scale-[1.03] hover:-translate-y-1 w-full">
-              <ProfileCard />
+              <ProfileCard
+                avatarSrc="https://github.com/shadcn.png"
+                avatarAlt="JD"
+                name="John Doe"
+                role="Senior Developer"
+                badgeText="Pro"
+                stats={[
+                  { label: "Projects", value: "142" },
+                  { label: "Following", value: "4.8k" },
+                  { label: "Followers", value: "12.5k" },
+                ]}
+                description="Full-stack developer with 10+ years of experience in React, Node.js & TypeScript. Passionate about scalable systems and clean UI."
+                skills={[
+                  "React",
+                  "Node.js",
+                  "TypeScript",
+                  "Tailwind",
+                  "GraphQL",
+                ]}
+              />
             </div>
           </div>
 

@@ -4,7 +4,16 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
-const ProfileCard = () => {
+const ProfileCard = ({
+  avatarSrc,
+  avatarAlt,
+  name,
+  role,
+  badgeText,
+  stats,
+  description,
+  skills,
+}) => {
   const [expanded, setExpanded] = useState(false);
 
   return (
@@ -16,30 +25,24 @@ const ProfileCard = () => {
       <div className="flex items-center justify-between px-6 pt-6 pb-4 bg-gray-100 dark:bg-gray-800">
         <div className="flex items-center gap-4">
           <Avatar className="h-14 w-14 ring-2 ring-blue-500">
-            <AvatarImage src="https://github.com/shadcn.png" alt="Profile" />
-            <AvatarFallback>JD</AvatarFallback>
+            <AvatarImage src={avatarSrc} alt={avatarAlt} />
+            <AvatarFallback>{avatarAlt}</AvatarFallback>
           </Avatar>
           <div>
             <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-              John Doe
+              {name}
             </h3>
-            <p className="text-sm text-gray-500 dark:text-gray-300">
-              Senior Developer
-            </p>
+            <p className="text-sm text-gray-500 dark:text-gray-300">{role}</p>
           </div>
         </div>
         <Badge className="bg-blue-100 text-blue-600 dark:bg-blue-500/20 dark:text-blue-300">
-          Pro
+          {badgeText}
         </Badge>
       </div>
 
       {/* Stats Section */}
       <div className="flex justify-around text-center py-4 bg-gray-50 dark:bg-gray-800 border-t border-b border-border">
-        {[
-          { label: "Projects", value: "142" },
-          { label: "Following", value: "4.8k" },
-          { label: "Followers", value: "12.5k" },
-        ].map((item) => (
+        {stats.map((item) => (
           <div key={item.label}>
             <p className="text-base font-semibold text-gray-900 dark:text-white">
               {item.value}
@@ -54,22 +57,17 @@ const ProfileCard = () => {
       {/* Expanded Content */}
       {expanded && (
         <div className="px-6 py-4 text-sm text-gray-700 dark:text-gray-300">
-          <p className="mb-4">
-            Full-stack developer with 10+ years of experience in React, Node.js
-            & TypeScript. Passionate about scalable systems and clean UI.
-          </p>
+          <p className="mb-4">{description}</p>
           <div className="flex flex-wrap gap-2">
-            {["React", "Node.js", "TypeScript", "Tailwind", "GraphQL"].map(
-              (skill) => (
-                <Badge
-                  key={skill}
-                  variant="outline"
-                  className="border-blue-300 text-blue-600 dark:border-blue-400 dark:text-blue-300"
-                >
-                  {skill}
-                </Badge>
-              )
-            )}
+            {skills.map((skill) => (
+              <Badge
+                key={skill}
+                variant="outline"
+                className="border-blue-300 text-blue-600 dark:border-blue-400 dark:text-blue-300"
+              >
+                {skill}
+              </Badge>
+            ))}
           </div>
         </div>
       )}
