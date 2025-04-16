@@ -1,5 +1,4 @@
 import React from "react";
-import ProjectCard from "@/components/cards/ProjectCard";
 import NotificationCard from "@/components/cards/NotificationCard";
 import ProfileCard from "@/components/cards/ProfileCard";
 import PricingCard from "@/components/cards/PricingCard";
@@ -59,7 +58,16 @@ const Index = () => {
 
           <div className="col-span-1 flex justify-center items-start animate-fade-in opacity-0 animation-delay-1000 hover:z-10">
             <div className="transform transition-all duration-500 hover:scale-[1.03] hover:-translate-y-1 w-full">
-              <TravelCard />
+              <TravelCard
+                image="https://images.pexels.com/photos/1694621/pexels-photo-1694621.jpeg?auto=compress&cs=tinysrgb&w=600"
+                title="Bali, Indonesia"
+                location="Tropical Paradise"
+                description="Experience the ultimate tropical getaway with pristine beaches, lush rice terraces, and vibrant cultural experiences in the heart of Indonesia."
+                price="$1,299"
+                duration="7 Days, 6 Nights"
+                rating={4.5}
+                badgeText="Best Seller"
+              />
             </div>
           </div>
         </div>

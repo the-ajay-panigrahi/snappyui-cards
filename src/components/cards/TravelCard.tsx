@@ -4,7 +4,16 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, MapPin, Star, Share, PlaneTakeoff } from "lucide-react";
 
-const TravelCard = () => {
+const TravelCard = ({
+  image,
+  title,
+  location,
+  description,
+  price,
+  duration,
+  rating,
+  badgeText,
+}) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -16,8 +25,8 @@ const TravelCard = () => {
     >
       <div className="relative overflow-hidden h-56">
         <img
-          src="https://images.pexels.com/photos/1694621/pexels-photo-1694621.jpeg?auto=compress&cs=tinysrgb&w=600"
-          alt="Tropical beach"
+          src={image}
+          alt={title}
           className={`w-full h-full object-cover transition-all duration-700 ${
             isHovered ? "scale-110 rotate-1" : "scale-100"
           }`}
@@ -39,30 +48,28 @@ const TravelCard = () => {
 
         {/* Title & Info */}
         <div className="absolute bottom-4 left-4 right-4">
-          <h2 className="text-2xl font-bold text-white drop-shadow">
-            Bali, Indonesia
-          </h2>
+          <h2 className="text-2xl font-bold text-white drop-shadow">{title}</h2>
           <div className="flex items-center text-white/90 mb-1">
             <MapPin className="w-4 h-4 mr-1" />
-            <span className="text-sm">Tropical Paradise</span>
+            <span className="text-sm">{location}</span>
           </div>
 
           <div className="flex justify-between items-center">
             <div className="flex items-center gap-1">
-              {[1, 2, 3, 4, 5].map((i) => (
+              {[...Array(5)].map((_, i) => (
                 <Star
                   key={i}
                   className={`w-4 h-4 ${
-                    i <= 4.5
+                    i < rating
                       ? "text-yellow-400 fill-yellow-400"
                       : "text-white/40"
                   }`}
                 />
               ))}
-              <span className="text-xs text-white ml-1">(128)</span>
+              <span className="text-xs text-white ml-1">({rating})</span>
             </div>
             <Badge className="bg-green-500 text-white shadow-md">
-              Best Seller
+              {badgeText}
             </Badge>
           </div>
         </div>
@@ -73,21 +80,17 @@ const TravelCard = () => {
         <div className="flex justify-between items-center mb-4">
           <div className="flex items-center gap-2 text-muted-foreground">
             <Calendar className="w-4 h-4 text-blue-500" />
-            <span className="text-sm font-medium">7 Days, 6 Nights</span>
+            <span className="text-sm font-medium">{duration}</span>
           </div>
           <div className="text-xl font-bold text-primary">
-            $1,299{" "}
+            {price}{" "}
             <span className="text-xs text-muted-foreground font-normal">
               / person
             </span>
           </div>
         </div>
 
-        <p className="text-sm text-muted-foreground mb-5">
-          Experience the ultimate tropical getaway with pristine beaches, lush
-          rice terraces, and vibrant cultural experiences in the heart of
-          Indonesia.
-        </p>
+        <p className="text-sm text-muted-foreground mb-5">{description}</p>
 
         <Button
           className={`w-full gap-2 bg-gradient-to-r from-indigo-500 to-blue-600 hover:from-indigo-600 hover:to-blue-700 text-white transition-all duration-300 relative overflow-hidden ${
