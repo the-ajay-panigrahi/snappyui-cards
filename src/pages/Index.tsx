@@ -6,6 +6,9 @@ import ProfileCard from "@/components/cards/ProfileCard";
 import PricingCard from "@/components/cards/PricingCard";
 import AnalyticsCard from "@/components/cards/AnalyticsCard";
 import InfoCard from "@/components/cards/InfoCard";
+import BlogCard from "@/components/cards/BlogCard";
+import ProductCard from "@/components/cards/ProductCard";
+import TravelCard from "@/components/cards/TravelCard";
 import ThemeToggle from "@/components/ThemeToggle";
 
 const Index = () => {
@@ -53,6 +56,24 @@ const Index = () => {
           <div className="col-span-1 flex justify-center items-start animate-fade-in opacity-0 animation-delay-700 hover:z-10">
             <div className="transform transition-all duration-500 hover:scale-[1.03] hover:-translate-y-1 w-full">
               <InfoCard />
+            </div>
+          </div>
+          
+          <div className="col-span-1 flex justify-center items-start animate-fade-in opacity-0 animation-delay-800 hover:z-10">
+            <div className="transform transition-all duration-500 hover:scale-[1.03] hover:-translate-y-1 w-full">
+              <BlogCard />
+            </div>
+          </div>
+          
+          <div className="col-span-1 flex justify-center items-start animate-fade-in opacity-0 animation-delay-900 hover:z-10">
+            <div className="transform transition-all duration-500 hover:scale-[1.03] hover:-translate-y-1 w-full">
+              <ProductCard />
+            </div>
+          </div>
+          
+          <div className="col-span-1 flex justify-center items-start animate-fade-in opacity-0 animation-delay-1000 hover:z-10">
+            <div className="transform transition-all duration-500 hover:scale-[1.03] hover:-translate-y-1 w-full">
+              <TravelCard />
             </div>
           </div>
         </div>

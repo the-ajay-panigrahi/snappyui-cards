@@ -4,6 +4,7 @@ import CardBase from "../CardBase";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { Bell, CheckCircle2 } from "lucide-react";
+import { ScrollArea } from "@/components/ui/scroll-area";
 
 interface NotificationItem {
   id: number;
@@ -61,26 +62,28 @@ const NotificationCard = () => {
           />
         </div>
 
-        <div className="space-y-3 max-h-[250px] overflow-y-auto pr-2 py-1">
-          {notifications.map((notification, index) => (
-            <div
-              key={notification.id}
-              className={`flex items-start gap-3 p-3 rounded-lg transition-all duration-300 
-                ${notification.read ? "opacity-60" : "opacity-100"} 
-                hover:bg-white/5 cursor-pointer
-                transform hover:-translate-y-0.5
-                transition-all ease-out duration-300
-                ${index === 0 ? 'animate-fade-in' : index === 1 ? 'animate-fade-in delay-100' : 'animate-fade-in delay-200'}`}
-              onClick={() => markAsRead(notification.id)}
-            >
-              <div className={`w-2 h-2 rounded-full mt-2 transition-all duration-300 ${notification.read ? "bg-white/20" : "bg-blue-500"}`}></div>
-              <div className="flex-1">
-                <p className="font-medium">{notification.message}</p>
-                <p className="text-sm text-white/60">{notification.time}</p>
+        <ScrollArea className="h-[180px] pr-2">
+          <div className="space-y-3 py-1">
+            {notifications.map((notification, index) => (
+              <div
+                key={notification.id}
+                className={`flex items-start gap-3 p-3 rounded-lg transition-all duration-300 
+                  ${notification.read ? "opacity-60" : "opacity-100"} 
+                  hover:bg-white/5 cursor-pointer
+                  transform hover:-translate-y-0.5
+                  transition-all ease-out duration-300
+                  ${index === 0 ? 'animate-fade-in' : index === 1 ? 'animate-fade-in delay-100' : 'animate-fade-in delay-200'}`}
+                onClick={() => markAsRead(notification.id)}
+              >
+                <div className={`w-2 h-2 rounded-full mt-2 transition-all duration-300 ${notification.read ? "bg-white/20" : "bg-blue-500"}`}></div>
+                <div className="flex-1">
+                  <p className="font-medium">{notification.message}</p>
+                  <p className="text-sm text-white/60">{notification.time}</p>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </ScrollArea>
 
         <Button
           variant="outline" 
