@@ -11,13 +11,13 @@ const BlogCard = () => {
   return (
     <CardBase
       variant="default"
-      className="w-full max-w-md overflow-hidden group"
+      className="w-full max-w-md overflow-hidden group shadow-md dark:shadow-slate-800/30"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
       <div className="relative overflow-hidden h-48">
         <img
-          src="https://images.unsplash.com/photo-1518672770208-52b8100a9eb6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=700&q=80"
+          src="https://images.unsplash.com/photo-1518672770208-52b8100a9eb6?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
           alt="Architectural Interior"
           className={`w-full h-full object-cover transition-all duration-700 ${isHovered ? 'scale-110' : 'scale-100'}`}
         />
@@ -31,7 +31,7 @@ const BlogCard = () => {
         </div>
       </div>
 
-      <div className="p-6">
+      <div className="p-6 bg-white dark:bg-transparent">
         <div className="flex items-center justify-between text-xs text-muted-foreground mb-3">
           <div className="flex items-center gap-2">
             <Calendar className="w-3 h-3" />
@@ -43,11 +43,11 @@ const BlogCard = () => {
           </div>
         </div>
 
-        <h2 className={`text-xl font-bold mb-2 transition-all duration-300 ${isHovered ? 'text-blue-500' : ''}`}>
+        <h2 className={`text-xl font-bold mb-2 transition-all duration-300 ${isHovered ? 'text-blue-500' : 'text-slate-800 dark:text-white'}`}>
           The Future of Sustainable Architecture
         </h2>
         
-        <p className="text-muted-foreground text-sm mb-6 line-clamp-3">
+        <p className="text-slate-600 dark:text-muted-foreground text-sm mb-6 line-clamp-3">
           Exploring how modern architectural designs are embracing sustainability through innovative materials and energy-efficient approaches that reduce environmental impact while creating stunning spaces.
         </p>
         
@@ -55,7 +55,7 @@ const BlogCard = () => {
           <Button 
             variant="outline" 
             size="sm" 
-            className="group/btn flex items-center gap-2 transition-all duration-300 transform-gpu"
+            className="group/btn flex items-center gap-2 transition-all duration-300 transform-gpu border-slate-200 dark:border-slate-700"
           >
             <BookOpen className="w-4 h-4 transition-transform duration-300 group-hover/btn:scale-110" />
             <span className="relative">
@@ -67,7 +67,7 @@ const BlogCard = () => {
           <Button 
             variant="ghost" 
             size="icon" 
-            className={`rounded-full transition-all duration-300 ${isHovered ? 'bg-blue-100 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400' : ''}`}
+            className={`rounded-full transition-all duration-300 ${isHovered ? 'bg-blue-100 text-blue-600 dark:bg-blue-900/20 dark:text-blue-400' : ''}`}
           >
             <Share2 className="w-4 h-4" />
           </Button>

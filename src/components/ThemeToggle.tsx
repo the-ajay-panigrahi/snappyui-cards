@@ -20,7 +20,7 @@ const ThemeToggle = () => {
     <Button
       variant="outline"
       size="icon"
-      className="fixed bottom-6 right-6 rounded-full w-10 h-10 bg-white/10 backdrop-blur-md border border-white/20 shadow-lg dark:bg-slate-800/50"
+      className="fixed bottom-6 right-6 rounded-full w-10 h-10 bg-white/80 dark:bg-slate-800/50 backdrop-blur-md border border-slate-200 dark:border-white/20 shadow-lg"
       onClick={() => setIsDarkMode(!isDarkMode)}
     >
       {isDarkMode ? (
