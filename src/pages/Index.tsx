@@ -5,6 +5,7 @@ import NotificationCard from "@/components/cards/NotificationCard";
 import ProfileCard from "@/components/cards/ProfileCard";
 import PricingCard from "@/components/cards/PricingCard";
 import AnalyticsCard from "@/components/cards/AnalyticsCard";
+import InfoCard from "@/components/cards/InfoCard";
 import ThemeToggle from "@/components/ThemeToggle";
 
 const Index = () => {
@@ -37,6 +38,10 @@ const Index = () => {
           
           <div className="col-span-1 flex justify-center items-start transform transition-all duration-300 hover:scale-[1.02]">
             <AnalyticsCard />
+          </div>
+          
+          <div className="col-span-1 flex justify-center items-start transform transition-all duration-300 hover:scale-[1.02]">
+            <InfoCard />
           </div>
         </div>
         

@@ -12,14 +12,14 @@ const ProfileCard = () => {
 
   return (
     <CardBase
-      variant="highlight"
+      variant="gradient"
       className={`w-full max-w-sm relative overflow-hidden transition-all duration-500 ${
         expanded ? "h-[420px]" : "h-[220px]"
       }`}
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
-      <div className="absolute top-0 right-0 left-0 h-24 bg-gradient-to-r from-blue-500/20 to-purple-500/20"></div>
+      <div className="absolute top-0 right-0 left-0 h-24 bg-gradient-to-r from-indigo-600/20 to-indigo-800/30"></div>
       
       <div className="p-6 relative">
         <div className="flex items-center gap-4 mb-4">
@@ -29,32 +29,32 @@ const ProfileCard = () => {
           </Avatar>
           
           <div>
-            <h3 className="text-xl font-bold leading-none mb-1">John Doe</h3>
-            <p className="text-muted-foreground">Senior Developer</p>
+            <h3 className="text-xl font-bold leading-none mb-1 text-white">John Doe</h3>
+            <p className="text-indigo-200/80">Senior Developer</p>
           </div>
           
           <Badge className="ml-auto bg-blue-500/20 text-blue-300 hover:bg-blue-500/30">Pro</Badge>
         </div>
         
-        <div className="flex items-center gap-4 mb-6 text-sm">
+        <div className="flex justify-around mb-6 text-sm">
           <div className="flex flex-col items-center">
-            <span className="font-bold">142</span>
-            <span className="text-muted-foreground">Projects</span>
+            <span className="font-bold text-white">142</span>
+            <span className="text-indigo-200/80">Projects</span>
           </div>
           <div className="flex flex-col items-center">
-            <span className="font-bold">4.8k</span>
-            <span className="text-muted-foreground">Following</span>
+            <span className="font-bold text-white">4.8k</span>
+            <span className="text-indigo-200/80">Following</span>
           </div>
           <div className="flex flex-col items-center">
-            <span className="font-bold">12.5k</span>
-            <span className="text-muted-foreground">Followers</span>
+            <span className="font-bold text-white">12.5k</span>
+            <span className="text-indigo-200/80">Followers</span>
           </div>
         </div>
         
         <div className={`overflow-hidden transition-all duration-500 ${
           expanded ? "opacity-100 max-h-[1000px]" : "opacity-0 max-h-0"
         }`}>
-          <p className="text-muted-foreground mb-4">
+          <p className="text-indigo-200/80 mb-4">
             Full-stack developer with over 10 years of experience in building web applications using React, Node.js, and TypeScript. Passionate about clean code and user-centric design.
           </p>
           
@@ -69,7 +69,7 @@ const ProfileCard = () => {
         
         <div className="flex gap-2 mt-4">
           <Button 
-            className="flex-1 bg-blue-600 hover:bg-blue-700"
+            className="flex-1 bg-blue-600 hover:bg-blue-700 text-white"
             onClick={() => setExpanded(!expanded)}
           >
             {expanded ? "View Less" : "View More"}
