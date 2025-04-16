@@ -19,9 +19,9 @@ const InfoCard = () => {
       <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/5 via-transparent to-purple-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700"></div>
       <div className={`absolute -top-20 -right-20 w-40 h-40 bg-cyan-500/10 rounded-full blur-2xl transition-all duration-500 ${isHovered ? 'scale-125' : 'scale-100'}`}></div>
       
-      <div className="relative">
+      <div className="relative z-10">
         <div className="flex items-center gap-3 mb-4">
-          <div className="p-2 rounded-full bg-cyan-500/10">
+          <div className="p-2 rounded-full bg-cyan-500/10 transition-all duration-300 group-hover:bg-cyan-500/20">
             <InfoIcon className="w-6 h-6 text-cyan-400" />
           </div>
           <h3 className="text-xl font-semibold">Getting Started</h3>
@@ -34,7 +34,7 @@ const InfoCard = () => {
         <Separator className="my-6 bg-cyan-500/20" />
         
         <div className="space-y-4">
-          <div className={`flex items-start gap-4 p-3 rounded-lg transition-all duration-300 ${isHovered ? 'bg-cyan-500/5' : ''}`}>
+          <div className={`flex items-start gap-4 p-3 rounded-lg transition-all duration-300 ${isHovered ? 'bg-cyan-500/5 transform translate-x-1' : ''}`}>
             <BookOpen className="w-5 h-5 text-cyan-400 mt-0.5 shrink-0" />
             <div>
               <h4 className="font-medium">Documentation</h4>
@@ -42,7 +42,7 @@ const InfoCard = () => {
             </div>
           </div>
           
-          <div className={`flex items-start gap-4 p-3 rounded-lg transition-all duration-300 ${isHovered ? 'bg-cyan-500/5' : ''}`}>
+          <div className={`flex items-start gap-4 p-3 rounded-lg transition-all duration-300 ${isHovered ? 'bg-cyan-500/5 transform translate-x-1 delay-75' : ''}`}>
             <Code className="w-5 h-5 text-cyan-400 mt-0.5 shrink-0" />
             <div>
               <h4 className="font-medium">Examples</h4>
@@ -50,7 +50,7 @@ const InfoCard = () => {
             </div>
           </div>
           
-          <div className={`flex items-start gap-4 p-3 rounded-lg transition-all duration-300 ${isHovered ? 'bg-cyan-500/5' : ''}`}>
+          <div className={`flex items-start gap-4 p-3 rounded-lg transition-all duration-300 ${isHovered ? 'bg-cyan-500/5 transform translate-x-1 delay-150' : ''}`}>
             <Check className="w-5 h-5 text-cyan-400 mt-0.5 shrink-0" />
             <div>
               <h4 className="font-medium">Best Practices</h4>
@@ -60,11 +60,13 @@ const InfoCard = () => {
         </div>
         
         <Button 
-          className="w-full mt-6 gap-2 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white"
+          className="w-full mt-6 gap-2 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white relative overflow-hidden group"
         >
-          <span>View Resources</span>
-          <ExternalLink className="w-4 h-4" />
-          <span className={`absolute inset-0 w-full h-full bg-white/10 ${isHovered ? 'animate-pulse' : 'opacity-0'}`}></span>
+          <span className="relative z-10 flex items-center gap-2">
+            <span>View Resources</span>
+            <ExternalLink className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+          </span>
+          <span className={`absolute inset-0 w-full h-full bg-white/10 transition-opacity duration-500 ${isHovered ? 'opacity-30 animate-pulse' : 'opacity-0'}`}></span>
         </Button>
       </div>
     </CardBase>
