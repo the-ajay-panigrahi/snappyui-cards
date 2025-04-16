@@ -95,7 +95,16 @@ const Index = () => {
 
           <div className="col-span-1 flex justify-center items-start animate-fade-in opacity-0 animation-delay-600 hover:z-10">
             <div className="transform transition-all duration-500 hover:scale-[1.03] hover:-translate-y-1 w-full">
-              <AnalyticsCard />
+              <AnalyticsCard
+                title="Monthly Overview"
+                percentageChange={15.7}
+                visitors={30845}
+                progressValue={60}
+                goal={75}
+                newUsers={210}
+                pageViews="5.2m"
+                revenue="$20,300"
+              />
             </div>
           </div>
 
@@ -132,7 +141,16 @@ const Index = () => {
 
           <div className="col-span-1 flex justify-center items-start animate-fade-in opacity-0 animation-delay-800 hover:z-10">
             <div className="transform transition-all duration-500 hover:scale-[1.03] hover:-translate-y-1 w-full">
-              <BlogCard />
+              <BlogCard
+                image="https://images.pexels.com/photos/31606510/pexels-photo-31606510/free-photo-of-elegant-modern-dining-room-with-outdoor-view.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+                category="Architecture"
+                date="April 14, 2025"
+                readTime="5 min read"
+                title="The Future of Sustainable Architecture"
+                description="Exploring how modern architectural designs are embracing sustainability through innovative materials and energy-efficient approaches that reduce environmental impact while creating stunning spaces."
+                onReadMore={() => console.log("Read More clicked")}
+                onShare={() => console.log("Share clicked")}
+              />
             </div>
           </div>
 
