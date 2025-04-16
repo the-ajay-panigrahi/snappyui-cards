@@ -16,7 +16,35 @@ const Index = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           <div className="col-span-1 flex justify-center items-start animate-fade-in opacity-0 animation-delay-300 hover:z-10">
             <div className="transform transition-all duration-500 hover:scale-[1.03] hover:-translate-y-1 w-full">
-              <NotificationCard />
+              <NotificationCard
+                notifications={[
+                  {
+                    id: 1,
+                    message: "Your call has been confirmed.",
+                    time: "1 hour ago",
+                    read: false,
+                  },
+                  {
+                    id: 2,
+                    message: "You have a new message!",
+                    time: "2 hours ago",
+                    read: false,
+                  },
+                  {
+                    id: 3,
+                    message: "Your subscription is expiring soon!",
+                    time: "5 hours ago",
+                    read: false,
+                  },
+                ]}
+                setNotifications={(newNotifications) => {
+                  console.log("Set Notifications:", newNotifications);
+                }}
+                pushEnabled={true}
+                setPushEnabled={(val) => {
+                  console.log("Set Push Enabled:", val);
+                }}
+              />
             </div>
           </div>
 
@@ -47,7 +75,21 @@ const Index = () => {
 
           <div className="col-span-1 flex justify-center items-start animate-fade-in opacity-0 animation-delay-500 hover:z-10">
             <div className="transform transition-all duration-500 hover:scale-[1.03] hover:-translate-y-1 w-full">
-              <PricingCard />
+              <PricingCard
+                planName="PRO PLAN"
+                price="$29"
+                pricePeriod="month"
+                isPopular={true}
+                features={[
+                  "Unlimited projects",
+                  "Team collaboration tools",
+                  "Advanced analytics",
+                  "Priority support",
+                  "Custom integrations",
+                ]}
+                buttonText="Subscribe Now"
+                guaranteeText="30-day money-back guarantee"
+              />
             </div>
           </div>
 
@@ -59,7 +101,32 @@ const Index = () => {
 
           <div className="col-span-1 flex justify-center items-start animate-fade-in opacity-0 animation-delay-700 hover:z-10">
             <div className="transform transition-all duration-500 hover:scale-[1.03] hover:-translate-y-1 w-full">
-              <InfoCard />
+              <InfoCard
+                title="Getting Started"
+                description="Everything you need to know about our platform and how to make the most of it."
+                buttonText="Explore Docs"
+                onClick={() => console.log("Button clicked!")}
+                items={[
+                  {
+                    icon: (
+                      <span className="text-xl" role="img" aria-label="book">
+                        📘
+                      </span>
+                    ),
+                    title: "Documentation",
+                    description: "Comprehensive guides and API references",
+                  },
+                  {
+                    icon: (
+                      <span className="text-xl" role="img" aria-label="code">
+                        💻
+                      </span>
+                    ),
+                    title: "Examples",
+                    description: "Ready-to-use code snippets and demos",
+                  },
+                ]}
+              />
             </div>
           </div>
 

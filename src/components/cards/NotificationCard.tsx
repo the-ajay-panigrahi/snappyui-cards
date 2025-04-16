@@ -1,51 +1,39 @@
-import React, { useState } from "react";
+// NotificationCard.tsx
+
+import React from "react";
 import CardBase from "../CardBase";
 import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { Bell, CheckCircle2 } from "lucide-react";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
-interface NotificationItem {
+export interface NotificationItem {
   id: number;
   message: string;
   time: string;
   read: boolean;
 }
 
-const NotificationCard = () => {
-  const [pushEnabled, setPushEnabled] = useState(false);
-  const [notifications, setNotifications] = useState<NotificationItem[]>([
-    {
-      id: 1,
-      message: "Your call has been confirmed.",
-      time: "1 hour ago",
-      read: false,
-    },
-    {
-      id: 2,
-      message: "You have a new message!",
-      time: "1 hour ago",
-      read: false,
-    },
-    {
-      id: 3,
-      message: "Your subscription is expiring soon!",
-      time: "2 hours ago",
-      read: false,
-    },
-  ]);
+interface NotificationCardProps {
+  notifications: NotificationItem[];
+  setNotifications: (notifications: NotificationItem[]) => void;
+  pushEnabled: boolean;
+  setPushEnabled: (enabled: boolean) => void;
+}
 
+const NotificationCard: React.FC<NotificationCardProps> = ({
+  notifications,
+  setNotifications,
+  pushEnabled,
+  setPushEnabled,
+}) => {
   const markAllAsRead = () => {
-    setNotifications(
-      notifications.map((notification) => ({ ...notification, read: true }))
-    );
+    setNotifications(notifications.map((n) => ({ ...n, read: true })));
   };
 
   const markAsRead = (id: number) => {
     setNotifications(
-      notifications.map((notification) =>
-        notification.id === id ? { ...notification, read: true } : notification
-      )
+      notifications.map((n) => (n.id === id ? { ...n, read: true } : n))
     );
   };
 
@@ -76,10 +64,7 @@ const NotificationCard = () => {
                         hover:bg-white/90 dark:hover:bg-white/10"
         >
           <div className="flex items-center gap-3">
-            <Bell
-              size={20}
-              className="text-gray-800 dark:text-white/80 transition-transform duration-300 group-hover:scale-110"
-            />
+            <Bell size={20} className="text-gray-800 dark:text-white/80" />
             <span className="font-medium text-gray-800 dark:text-white">
               Push Notifications
             </span>
@@ -100,23 +85,16 @@ const NotificationCard = () => {
                 className={`flex items-start gap-3 p-3 rounded-lg transition-all duration-300 
                   ${notification.read ? "opacity-60" : "opacity-100"} 
                   hover:bg-gray-100 dark:hover:bg-white/5 cursor-pointer
-                  transform hover:-translate-y-0.5
-                  ${
-                    index === 0
-                      ? "animate-fade-in"
-                      : index === 1
-                      ? "animate-fade-in delay-100"
-                      : "animate-fade-in delay-200"
-                  }`}
+                  transform hover:-translate-y-0.5`}
                 onClick={() => markAsRead(notification.id)}
               >
                 <div
                   className={`w-2 h-2 rounded-full mt-2 transition-all duration-300 
-                                ${
-                                  notification.read
-                                    ? "bg-gray-300 dark:bg-white/20"
-                                    : "bg-blue-500"
-                                }`}
+                    ${
+                      notification.read
+                        ? "bg-gray-300 dark:bg-white/20"
+                        : "bg-blue-500"
+                    }`}
                 ></div>
                 <div className="flex-1">
                   <p className="font-medium text-gray-800 dark:text-white">
@@ -136,13 +114,10 @@ const NotificationCard = () => {
           variant="outline"
           className="w-full mt-6 bg-gray-100 hover:bg-gray-200 border border-gray-300 
                      dark:bg-white/5 dark:hover:bg-white/10 dark:border-white/10 
-                     text-gray-800 dark:text-white font-medium flex items-center justify-center gap-2 transition-all duration-300 group/btn"
+                     text-gray-800 dark:text-white font-medium flex items-center justify-center gap-2"
           onClick={markAllAsRead}
         >
-          <CheckCircle2
-            size={16}
-            className="transition-transform duration-300 group-hover/btn:scale-110"
-          />
+          <CheckCircle2 size={16} />
           <span>Mark all as read</span>
         </Button>
       </div>
