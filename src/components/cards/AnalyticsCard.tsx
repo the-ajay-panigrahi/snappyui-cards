@@ -1,0 +1,96 @@
+
+import React, { useState } from "react";
+import CardBase from "../CardBase";
+import { Button } from "@/components/ui/button";
+import { Progress } from "@/components/ui/progress";
+import { ArrowUp, BarChart2, TrendingUp, Users } from "lucide-react";
+
+const AnalyticsCard = () => {
+  const [progress, setProgress] = useState(78);
+  const [isActive, setIsActive] = useState(false);
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setProgress((prev) => {
+        const newValue = prev + (Math.random() * 4 - 2);
+        return Math.min(100, Math.max(0, newValue));
+      });
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <CardBase
+      variant="default"
+      className="w-full max-w-sm p-6 relative group border-slate-200 dark:border-slate-800"
+      onMouseEnter={() => setIsActive(true)}
+      onMouseLeave={() => setIsActive(false)}
+    >
+      <div className={`absolute inset-0 bg-gradient-to-br from-green-500/5 via-transparent to-blue-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-xl`}></div>
+      
+      <div className="relative">
+        <div className="flex items-center justify-between">
+          <h3 className="text-xl font-medium">Weekly Traffic</h3>
+          <span className="flex items-center text-green-500 text-sm font-medium bg-green-500/10 px-2 py-1 rounded-full">
+            <ArrowUp className="w-3 h-3 mr-1" />
+            12.4%
+          </span>
+        </div>
+        
+        <div className="mt-4">
+          <div className="text-3xl font-bold">24,521</div>
+          <div className="text-sm text-muted-foreground">Total visitors this week</div>
+        </div>
+        
+        <div className="mt-6">
+          <div className="flex justify-between text-sm mb-1">
+            <span>Weekly Goal</span>
+            <span className="font-medium">{progress.toFixed(0)}%</span>
+          </div>
+          <Progress 
+            value={progress} 
+            className={`h-2 transition-all duration-500 ${
+              progress > 66 ? "bg-green-200" : progress > 33 ? "bg-yellow-200" : "bg-red-200"
+            }`}
+          />
+        </div>
+        
+        <div className="grid grid-cols-3 gap-4 mt-6 text-sm">
+          <div className={`p-3 rounded-lg border transition-colors duration-300 ${
+            isActive ? 'bg-blue-50 border-blue-200 dark:bg-blue-900/20 dark:border-blue-800' : 'bg-slate-50 border-slate-200 dark:bg-slate-800/50 dark:border-slate-700'
+          }`}>
+            <Users className="w-4 h-4 text-blue-500 mb-1" />
+            <div className="font-medium">127</div>
+            <div className="text-muted-foreground text-xs">New Users</div>
+          </div>
+          
+          <div className={`p-3 rounded-lg border transition-colors duration-300 ${
+            isActive ? 'bg-green-50 border-green-200 dark:bg-green-900/20 dark:border-green-800' : 'bg-slate-50 border-slate-200 dark:bg-slate-800/50 dark:border-slate-700'
+          }`}>
+            <BarChart2 className="w-4 h-4 text-green-500 mb-1" />
+            <div className="font-medium">4.5m</div>
+            <div className="text-muted-foreground text-xs">Page Views</div>
+          </div>
+          
+          <div className={`p-3 rounded-lg border transition-colors duration-300 ${
+            isActive ? 'bg-purple-50 border-purple-200 dark:bg-purple-900/20 dark:border-purple-800' : 'bg-slate-50 border-slate-200 dark:bg-slate-800/50 dark:border-slate-700'
+          }`}>
+            <TrendingUp className="w-4 h-4 text-purple-500 mb-1" />
+            <div className="font-medium">$14,589</div>
+            <div className="text-muted-foreground text-xs">Revenue</div>
+          </div>
+        </div>
+        
+        <Button
+          variant="outline"
+          className="w-full mt-6 border-slate-200 hover:bg-slate-100 dark:border-slate-700 dark:hover:bg-slate-800 transition-all duration-300"
+        >
+          View Full Report
+        </Button>
+      </div>
+    </CardBase>
+  );
+};
+
+export default AnalyticsCard;
